@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* header */
+        header{
+            /* position: relative; */
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            padding: 1rem 2rem;
+        }
+        .cont1{
+            /* position: absolute; */
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: color 0.3s;
+            /* left: 0%; */
+        }
+        .cont1:hover{
+            color: #f4a261;
+        }
+        header nav ul{
+            display: flex;
+            list-style-type: none;
+
+        }
+        header nav ul li{
+            margin-left: 1rem;
+            
+        }
+       header nav ul li a { 
+        /* why is this not working under header nav ul li */
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+            transition: color 0.3s;
+        }
+        header nav ul li a:hover {
+        color: #f4a261;
+        }
+
+        .cont2{
+            background-color: red;
+        }
+
+        .hero{
+            display: flex;
+            background-image: url(back.png); 
+            /* background-color: #333; */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding:80px;
+            justify-content: space-between;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+
+        } 
+
+        h1{
+            color: aliceblue;
+            font-weight: bold;
+            font-size: 3rem;
+            animation: leftToRight 5s ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        .hero p{
+            color:#E5E0F7;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-top: 2rem;
+            /* display: flex; */
+            /* background-color: black;
+            padding: 3px; */
+        }
+        .hero .btn {
+            background-color: #f4a261;
+            color: white;
+            padding: 1rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: inline-block; /* Ensure the button behaves like an inline block element */
+            width: 150px;   
+            margin-top: 2rem;
+        }
+
+        .hero .btn:hover {
+            background-color: #e76f51;
+        }
+        .menu-section {
+      padding: 3rem 2rem;
+      background-color: #fff;
+      text-align: center;
+    }
+    h2{
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    .menu-items{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .menu-item{
+        visibility: visible;
+        background-color: rgba(128, 128, 128, 0.404);
+        padding: 3rem 2rem;
+        width: 200px;
+        color: #e76f51;
+        border-radius: 10px;
+        /* cursor: pointer; */
+        position: relative;
+        z-index: 1;
+        
+    }
+    .menu-item p{
+        color: black;
+    }
+    .about-section{
+        background-color: #f4a261;
+        padding: 2rem 3rem;
+        text-align: center;
+    }
+    .about-section h2{
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: white;
+    }
+    .about-section p{
+        font-size: larger;
+    }
+    .Contact-us{
+        background-color: #333;
+        text-align: center;
+        padding: 2rem 3rem;
+    }
+    .Contact-us h2{
+        color: white;
+    }
+    .Contact-us p{
+        font-size: larger;
+        color: white;
+    }
+
+    @keyframes leftToRight {
+        0% {
+            transform: translateX(-100%);
+        }
+        
+        100% {
+            
+            transform: translateX(100%);
+        }
+    }
+    /* .menu-item:hover 
+    {
+        display: block; 
+        background-color: rgba(177, 32, 32, 0.404);
+            
+    } */
+
+    /* .menu-item{
+        position: relative;
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    
+    }
+ */
+
+    .pop-up {
+    display: none; /* Initially hide the pop-up */
+    position: absolute;
+    top: 0; /* Position it below the flex item */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 10; /* Make sure it appears above other content */
+    padding: 2.5rem;
+}
+
+.menu-item:hover .pop-up{
+    display: block;
+}
+
+.pop-up:hover{
+    z-index: 1;
+}
+
+
+
+    
+        
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="cont1">Delicious Bites</div>
+        <nav>
+            
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Welcome to Delicious Bites</h1>
+        <p>Your favorite place for the best food in town.</p>
+        <button class="btn">Explore Our Menu</button>
+    </section>
+    <section id="menu" class="menu-section">
+        <h2>Our Menu</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+              
+                <h3>Pizza</h3>
+                <p>Delicious cheesy pizza with fresh toppings.</p>
+                
+                <div class="pop-up">
+                    <ul>
+                     <li>Margarita</li>
+                     <li>Corn And Cheeese</li>
+                     <li>Paneer Tikka</li>
+                     <li>Farmhouse</li>
+                     <li>Deluxe Veggie</li>
+                    </ul>
+                 </div>
+            </div>
+            <div class="menu-item">
+                <h3>Burger</h3>
+                <p>Juicy Burger with fresh lettuce and tomato.</p>
+                <div class="pop-up">
+                    <ul>
+                     <li>Margarita</li>
+                     <li>Corn And Cheeese</li>
+                     <li>Paneer Tikka</li>
+                     <li>Farmhouse</li>
+                     <li>Deluxe Veggie</li>
+                    </ul>
+                 </div>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Pasta</h3>
+                <p>Creamy pasta with rich flavors and herbs.</p>
+                <div class="pop-up">
+                    <ul>
+                     <li>Margarita</li>
+                     <li>Corn And Cheeese</li>
+                     <li>Paneer Tikka</li>
+                     <li>Farmhouse</li>
+                     <li>Deluxe Veggie</li>
+                    </ul>
+                 </div>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Salad</h3>
+                <p>Fresh garden salad with a variety of vegetables.</p>
+                <div class="pop-up">
+                    <ul>
+                     <li>Margarita</li>
+                     <li>Corn And Cheeese</li>
+                     <li>Paneer Tikka</li>
+                     <li>Farmhouse</li>
+                     <li>Deluxe Veggie</li>
+                    </ul>
+                 </div>
+            </div>
+           
+        </div>
+    </section>
+    <section id="about" class="about-section">
+        <h2>About Us</h2>
+        <p>Delicious Bites has been serving the community with the best food since 1990. Our commitment to quality and taste is unmatched. Come experience the taste of excellence!
+
+        </p>
+
+    </section>
+    <section id="contact" class="Contact-us">
+        <h2>Contact Us</h2>
+        <p>Visit us at 123 Food Street, Flavor Town, or call us at (123) 456-7890.
+        </p>
+
+    </section>
+
+</body>
+</html>
