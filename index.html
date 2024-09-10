@@ -67,6 +67,7 @@
             flex-direction: column;
             text-align: center;
             align-items: center;
+            animation: img 3s ease-in-out;
 
         } 
 
@@ -74,14 +75,15 @@
             color: aliceblue;
             font-weight: bold;
             font-size: 3rem;
-            animation: leftToRight 5s ease-in-out;
-            animation-iteration-count: infinite;
+            animation: leftToRight 3s ease-in-out;
+            /* animation-iteration-count: infinite; */
         }
         .hero p{
             color:#E5E0F7;
             font-size: 2rem;
             font-weight: bold;
             margin-top: 2rem;
+            animation: rightToLeft 3s ease-in-out ;
             /* display: flex; */
             /* background-color: black;
             padding: 3px; */
@@ -116,18 +118,36 @@
         align-items: center;
         justify-content: center;
         gap: 2rem;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        position: relative;
+        
     }
     .menu-item{
         visibility: visible;
         background-color: rgba(128, 128, 128, 0.404);
         padding: 3rem 2rem;
+        padding-top: 50px;
         width: 200px;
+        height: 250px;
         color: #e76f51;
         border-radius: 10px;
+        perspective: 1500px;
         /* cursor: pointer; */
         position: relative;
         z-index: 1;
+        transition: 0.6 ease-in-out;
+        transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); /* Smooth transition with easing */
+        transform-style: preserve-3d;
+        text-align: center;
+        align-content: center;
+        /* position: absolute; */
+        /* animation: leftToRight 3s ease-in-out; */
+       
         
+    }
+    .menu-item:hover{
+        transform: rotateY(180deg);
     }
     .menu-item p{
         color: black;
@@ -157,56 +177,92 @@
         font-size: larger;
         color: white;
     }
+     /* .menu-item.pizza{
+         position: relative; 
+        animation: pizza 3s  steps(1,start);
+    }
+    .menu-item.burger{
+         position: absolute; 
+        animation: pizza 3s  steps(2,start);
+    }
+    .menu-item.pasta{
+        position: absolute; 
+        animation: pizza 3s  steps(3,start);
+    }
+    .menu-item.sald{
+         position: absolute;  
+        animation: pizza 3s  steps(4,start);}
+     */  
 
     @keyframes leftToRight {
         0% {
-            transform: translateX(-100%);
+            transform: translateX(-225%);
         }
         
         100% {
             
-            transform: translateX(100%);
+            transform: translateX(0%);
         }
     }
-    /* .menu-item:hover 
-    {
-        display: block; 
-        background-color: rgba(177, 32, 32, 0.404);
-            
-    } */
-
-    /* .menu-item{
-        position: relative;
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
-    border-radius: 5px;
-    
+    @keyframes pizza{
+        0%{
+            transform: translatex(-225%);
+        }
+        100%{
+            transform: translateX(0%);
+        }
     }
- */
 
-    .pop-up {
-    display: none; /* Initially hide the pop-up */
+    @keyframes rightToLeft{
+        0%{
+            transform: translateX(250%);
+        } 
+        100%{
+            transform: translateX(0%);
+        }
+    }
+
+    @keyframes img {
+        0% {
+            background-position: 0% 0%;
+        }
+        100%{
+            background-position: 0% 100%;
+        }
+
+    }
+
+.pop-up {
+    display: none; 
     position: absolute;
-    top: 0; /* Position it below the flex item */
-    left: 50%;
+    top: 0; 
+    left: 0%;
     transform: translateX(-50%);
     background-color: #333;
     color: #fff;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     white-space: nowrap;
-    z-index: 10; /* Make sure it appears above other content */
+    z-index: 10; 
     padding: 2.5rem;
+    box-shadow: 4px 4px #f4a261;
+    transform: rotateY(180deg);
+    width: 200px;
+    height: 250px;
+    align-content: center;
 }
 
-.menu-item:hover .pop-up{
+.menu-item:hover .pop-up {
     display: block;
+     transform: scale(1.2);  
+     transform: rotateY(180deg);
+    
 }
 
 .pop-up:hover{
     z-index: 1;
-}
+       transform: scale(1.2);   
+} 
 
 
 
@@ -237,11 +293,11 @@
     <section id="menu" class="menu-section">
         <h2>Our Menu</h2>
         <div class="menu-items">
-            <div class="menu-item">
+            <div class="menu-item pizza">
               
                 <h3>Pizza</h3>
                 <p>Delicious cheesy pizza with fresh toppings.</p>
-                
+              
                 <div class="pop-up">
                     <ul>
                      <li>Margarita</li>
@@ -252,9 +308,11 @@
                     </ul>
                  </div>
             </div>
-            <div class="menu-item">
+            <div class="menu-item burger">
+             
                 <h3>Burger</h3>
                 <p>Juicy Burger with fresh lettuce and tomato.</p>
+             
                 <div class="pop-up">
                     <ul>
                      <li>Margarita</li>
@@ -266,9 +324,11 @@
                  </div>
                 
             </div>
-            <div class="menu-item">
-                <h3>Pasta</h3>
-                <p>Creamy pasta with rich flavors and herbs.</p>
+            <div class="menu-item pasta">
+                
+                    <h3>Pasta</h3>
+                    <p>Creamy pasta with rich flavors and herbs.</p>
+                
                 <div class="pop-up">
                     <ul>
                      <li>Margarita</li>
@@ -280,9 +340,11 @@
                  </div>
                 
             </div>
-            <div class="menu-item">
+            <div class="menu-item sald">
+              
                 <h3>Salad</h3>
                 <p>Fresh garden salad with a variety of vegetables.</p>
+              
                 <div class="pop-up">
                     <ul>
                      <li>Margarita</li>
